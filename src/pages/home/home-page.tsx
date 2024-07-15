@@ -1,10 +1,10 @@
-import { useAuthProvider } from '@/auth'
+import { MainLayout } from '@/layouts/main-layouts'
 
 export const HomePage = () => {
-    const { currentUser } = useAuthProvider()
+    
     return (
-        <>
-            Hello, {currentUser?.firstName} {currentUser?.lastName}
-        </>
+        <MainLayout>
+            Hello, 
+        </MainLayout>
     )
 }
