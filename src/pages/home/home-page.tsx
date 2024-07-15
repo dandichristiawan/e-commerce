@@ -1,4 +1,4 @@
-import { useAuthProvider } from '@/libs/auth'
+import { useAuthProvider } from '@/auth'
 
 export const HomePage = () => {
     const { currentUser } = useAuthProvider()

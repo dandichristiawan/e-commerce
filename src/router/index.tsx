@@ -11,6 +11,7 @@ const Routes = () => {
             element: <LoginPage />
         }
     ]
+    
     const protectedRoutes: RouteObject[] = [
         {
             path: '/home',

@@ -1,11 +1,13 @@
-import React from 'react'
-
+import React from 'react';
+import { Login } from '@/features/login';
+import { MainLayout } from '@/layouts/main-layouts';
 
 export const LoginPage = () => {
-
-
-
-    return (
-        <></>
-    )
-}
+  return (
+    <>
+      <MainLayout>
+        <Login />
+      </MainLayout>
+    </>
+  );
+};
