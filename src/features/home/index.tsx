@@ -1,33 +1,25 @@
 import Card from "@/components/card/card"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Products } from "./libs/types"
 import { getAllProducts } from "./libs/api"
 const Home = () => {
-    // const [products, setProducts] = usestate<Products>()
+    const [data, setData] = useState<Products>()
     useEffect(() => {
         async function get(){
             try {
-                const getProducts = await getAllProducts()
-                console.log(getProducts)
-                // setProducts(getProducts)
+                const data = await getAllProducts()
+                setData(data)
             } catch (error) {
                 console.log(error)
             }
         }
         get()
     },[])
-    // console.log(products)
     return(
         <>
-            <div>
-                <Card/>
-            </div>
+            <Card product={data?.products}/>
         </>
     )
 }
 
 export default Home
-
-function usestate<T>(): [any, any] {
-    throw new Error("Function not implemented.")
-}

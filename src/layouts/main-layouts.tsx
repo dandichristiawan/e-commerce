@@ -10,9 +10,9 @@ export const MainLayout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-      <div className='p-10 xl:max-w-7xl lg:max-w-5xl max-w-xl  mx-auto'>
-        {children}
-      </div>
+        <div className='mt-10 p-10 xl:max-w-7xl lg:max-w-5xl max-w-xl mx-auto'>
+          {children}
+        </div>
       {/* <Footer /> */}
     </>
   );

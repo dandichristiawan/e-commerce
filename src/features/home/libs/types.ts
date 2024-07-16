@@ -1,4 +1,11 @@
 export interface Products {
+    limit : number
+    skip : number
+    total : number
+    products : any[] 
+}
+
+export interface dataProducts{
     id : number
     title : string
     description: string
@@ -8,3 +15,5 @@ export interface Products {
     tags : string[]
     thumbnail:string
 }
+
+
