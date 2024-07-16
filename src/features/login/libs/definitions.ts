@@ -1,7 +1,7 @@
 export type signInRequest = {
     username: string
     password: string
-    expiresInMins: 30
+    expiresInMins: 120
 }
 
 export type signInResponse = {

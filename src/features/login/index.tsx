@@ -13,7 +13,7 @@ export const Login = () => {
   const [loginValue, setLoginValue] = React.useState<signInRequest>({
     username: '',
     password: '',
-    expiresInMins: 30,
+    expiresInMins: 120,
   });
 
   const handleLoginValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
