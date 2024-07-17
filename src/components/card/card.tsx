@@ -6,7 +6,7 @@ interface Props {
 
 const Card = ({product} : Props) => {
     return (
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 my-10">
             {product?.map((item : dataProducts, i:number) =>(
                 <div className="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">

@@ -1,5 +1,4 @@
 import { useAuthProvider } from '@/auth';
-import React from 'react';
 
 export const Navbar = () => {
   const { currentUser } = useAuthProvider()
@@ -8,8 +7,15 @@ export const Navbar = () => {
     <div className='font-bold'>
       LOGO 
     </div>
-    <div className='font-thin'>
+    <div className='font-thin flex'>
       {currentUser?.firstName} {currentUser?.lastName}
+      <img
+        src={`${currentUser!.image}`}  
+        className="img-fluid rounded-top"
+        alt=""
+        height={32}
+        width={32}
+      />
     </div>
   </div>
   )

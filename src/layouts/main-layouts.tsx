@@ -1,4 +1,4 @@
-import { Footer } from '@/components/footer';
+import Footer from '@/components/footer';
 import { Navbar } from '@/components/navbar';
 import React from 'react';
 
@@ -10,10 +10,10 @@ export const MainLayout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-        <div className='mt-10 p-10 xl:max-w-7xl lg:max-w-5xl max-w-xl mx-auto'>
+        <div className=' xl:max-w-7xl lg:max-w-5xl max-w-xl mx-auto'>
           {children}
         </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

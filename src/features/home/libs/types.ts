@@ -1,7 +1,7 @@
 export interface Products {
-    limit : number
-    skip : number
-    total : number
+    limit : number | 0
+    skip : number | 0
+    total : number | 0
     products : any[] 
 }
 
