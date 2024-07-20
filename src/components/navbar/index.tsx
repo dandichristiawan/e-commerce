@@ -49,18 +49,18 @@ export const Navbar = () => {
               </DropdownMenuItem>
             </Link>
             <DropdownMenuItem>
+              <div className="flex flex-row gap-2 items-center">
+                <img src={cartIcon} height={16} width={16} />
+                <p>Cart</p>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
               <div
                 onClick={onLogout}
                 className="flex flex-row gap-2 items-center"
               >
                 <img src={logoutIcon} alt="" height={16} width={16} />
                 <p>Logout</p>
-              </div>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <div className="flex flex-row gap-2 items-center">
-                <img src={cartIcon} height={16} width={16} />
-                <p>Cart</p>
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>

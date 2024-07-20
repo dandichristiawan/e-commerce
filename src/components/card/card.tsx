@@ -1,5 +1,6 @@
 import { dataProducts } from '@/features/home/libs/types';
 import { renderStars } from '@/components/card/rating';
+import { Link } from 'react-router-dom';
 
 interface Props {
   product?: any[];
@@ -8,15 +9,22 @@ interface Props {
 const Card = ({ product }: Props) => {
   return (
     <div className="grid grid-cols-4 gap-4 my-10">
-      {product?.map((item: dataProducts, i: number) => (
-        <div className="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-          <a href="#">
+      {product?.map((item: dataProducts) => (
+        <div
+          key={item.id}
+          className="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+        >
+          <Link
+            to={`/product/${item.id}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img
               className="p-8 rounded-t-lg"
               src={`${item.thumbnail}`}
               alt="product image"
             />
-          </a>
+          </Link>
           <div className="px-5 pb-5">
             <a href="#">
               <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">

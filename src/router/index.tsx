@@ -3,6 +3,7 @@ import { LoginPage } from '../pages/login/login-page';
 import { HomePage } from '@/pages/home/home-page';
 import { ProfilePage } from '@/pages/profile/profile-page';
 import Cookies from 'js-cookie';
+import { ProductDetailPage } from '@/pages/product-detail/product-detail-page';
 
 const Routes = () => {
   const isTokenExist = Cookies.get('token');
@@ -22,10 +23,10 @@ const Routes = () => {
       path: '/profile',
       element: isTokenExist ? <ProfilePage /> : <Navigate to="/login" />,
     },
-    // {
-    //     path: '/detail/:id',
-
-    // }
+    {
+      path: 'product/:id',
+      element: isTokenExist ? <ProductDetailPage /> : <Navigate to="/login" />,
+    },
   ];
 
   const allRoutes: RouteObject[] = [...unprotectedRoutes, ...protectedRoutes];
