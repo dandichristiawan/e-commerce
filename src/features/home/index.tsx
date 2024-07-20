@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Products } from './libs/types';
 import { getAllProducts } from './libs/api';
 import { Pagination } from '@/components/pagination/pagination';
+import { CardSkeleton } from '@/components/card/card-skeleton';
 
 const Home = () => {
   const [data, setData] = useState<Products>();
@@ -27,8 +28,8 @@ const Home = () => {
     <>
       <>
         {loading ? (
-          <div className="text-center text-2xl font-thin h-screen">
-            Loading...
+          <div className="flex justify-center my-10">
+            <CardSkeleton />
           </div>
         ) : (
           <>

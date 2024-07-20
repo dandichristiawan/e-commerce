@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import personIcon from '@/assets/icons/icons8-person-64.png';
 import personIconBlack from '@/assets/icons/icons8-person-64-black.png';
-import cartIcon from '@/assets/icons/icons8-shopping-trolley-64.png';
+import cartIcon from '@/assets/icons/icons8-shopping-cart-64.png';
 import logoutIcon from '@/assets/icons/icons8-logout-50.png';
 import {
   DropdownMenu,
@@ -14,7 +14,6 @@ import {
 import { clearAllCookies } from '@/lib/utils';
 
 export const Navbar = () => {
-  
   const navTo = useNavigate();
 
   const onLogout = () => {
@@ -27,14 +26,11 @@ export const Navbar = () => {
       <Link to={'/home'}>
         <div className="font-bold">LOGO</div>
       </Link>
-      <div className="flex flex-row justify-end gap-8 items-center w-1/2">
+      <div className="flex flex-row justify-end gap-6 items-center w-1/2">
         <div className="">Posts</div>
         <div className="">Todos</div>
         <div className="">Recipes</div>
         <div className="">Quotes</div>
-        <div className="">
-          <img src={cartIcon} height={25} width={25} />
-        </div>
         <DropdownMenu>
           <DropdownMenuTrigger>
             <div className=" flex justify-center items-center rounded-full p-2 w-10 bg-gray-600">
@@ -59,6 +55,12 @@ export const Navbar = () => {
               >
                 <img src={logoutIcon} alt="" height={16} width={16} />
                 <p>Logout</p>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <div className="flex flex-row gap-2 items-center">
+                <img src={cartIcon} height={16} width={16} />
+                <p>Cart</p>
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
