@@ -1,19 +1,18 @@
 import React from 'react';
-import { useAuthProvider } from '@/auth';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import { LoginApi } from '@/features/login/libs/api';
 import { useNavigate } from 'react-router-dom';
 import { signInRequest } from '@/features/login/libs/definitions';
 
 export const Login = () => {
   const navTo = useNavigate();
 
-  const { signIn } = useAuthProvider();
   const [loginValue, setLoginValue] = React.useState<signInRequest>({
     username: '',
     password: '',
-    expiresInMins: 120,
+    expiresInMins: 60,
   });
 
   const handleLoginValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +25,7 @@ export const Login = () => {
 
   const onClicked = async (e: any) => {
     e.preventDefault();
-    const res = await signIn(loginValue);
+    const res = await LoginApi(loginValue);
     if (res) {
       navTo('/home');
     }
