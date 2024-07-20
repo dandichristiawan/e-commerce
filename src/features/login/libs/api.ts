@@ -25,24 +25,7 @@ export async function LoginApi(
   return data as signInResponse;
 }
 
-export async function CurrentUserApi(): Promise<signInResponse> {
-  const response = await fetch('https://dummyjson.com/auth/me', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${Cookies.get('token')}`,
-    },
-  });
 
-  if (!response.ok) {
-    throw new Error('Current User Failed!');
-  }
-  const data = await response.json();
-  localStorage.setItem('firstName', data.firstName);
-  localStorage.setItem('lastName', data.lastName);
-  localStorage.setItem('profilePic', data.image);
-  return data as signInResponse;
-}
 
 export async function RefreshAuthApi(
   requestData: refreshRequest
