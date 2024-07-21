@@ -9,6 +9,7 @@ import {
 import { Button } from "../ui/button";
 import { ProductDetailResponse } from "@/features/product-detail/libs/definitions";
 import { useState } from "react";
+import CartAddAlert from "../cart/cart-add-alert";
 
 interface Props{
     data : ProductDetailResponse
@@ -18,9 +19,10 @@ export default function CardOrder(
     {data}:Props
 ) {
     const [sum, setSum] = useState(1)
-    // const handleBtnPlusMin = () => {
-
-    // }
+    const handleClick = (id:number, quantity:number) => {
+      console.log('productId :'+id)
+      console.log('quantity :'+quantity)
+    }
 
   return (
     <>
@@ -39,10 +41,15 @@ export default function CardOrder(
         </CardContent>
         <CardFooter>
             <div className="">
-                <Button className="my-2 w-full bg-white hover:bg-blue-800 hover:text-white text-blue-600 border-blue-600 border-2 hover:border-blue-800">
-                    + Cart
-                </Button>
-                <Button className="w-full bg-blue-600 hover:bg-blue-800">
+                {/* <Button className="my-2 w-full bg-white hover:bg-blue-800 hover:text-white text-blue-600 border-blue-600 border-2 hover:border-blue-800 rounded-md">
+                    Add Cart
+                </Button> */}
+                <CartAddAlert
+                  handleClick={handleClick}
+                  data={data}
+                  quantity={sum}
+                />
+                <Button className="w-full bg-white hover:bg-blue-800 hover:text-white text-blue-600 border-blue-600 border-2 hover:border-blue-800">
                     Order Now
                 </Button>
             </div>

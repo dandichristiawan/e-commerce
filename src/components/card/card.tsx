@@ -1,15 +1,16 @@
 import { dataProducts } from "@/features/home/libs/types";
 import { renderStars } from "@/components/rating/rating";
 import { Link } from "react-router-dom";
-import ModalDialog from "../dialog/modal-dialog";
+import CartAddAlert from "../cart/cart-add-alert";
 
 interface Props {
   product?: any[];
 }
 
 const Card = ({ product }: Props) => {
-  const handleClick = (id: number) => {
+  const handleClick = (id: number, quantity:number) => {
     console.log(id);
+    console.log(quantity)
   };
 
   return (
@@ -51,7 +52,7 @@ const Card = ({ product }: Props) => {
                 ${item.price}
               </span>
             </div>
-            <ModalDialog 
+            <CartAddAlert 
               handleClick={handleClick} 
               data={item} 
             />

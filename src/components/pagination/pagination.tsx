@@ -48,15 +48,15 @@ export const Pagination = (
           <a
             href="#"
             onClick={() => handleClick(currentPage - 1)}
-            className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-black bg-white border border-e-0 border-gray-700 rounded-s hover:bg-black hover:text-black dark:hover:bg-black dark:hover:text-white"
+            className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border  rounded-s hover:hover:text-blue-600 hover:font-bold hover:underline"
           >
-            {`<<`}
+            {`<`}
           </a>
         </li>
         {pageNumbers.map((number, index) => (
           <li key={index}>
             {number === '...' ? (
-              <span className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border border-gray-700">
+              <span className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border ">
                 ...
               </span>
             ) : (
@@ -64,8 +64,8 @@ export const Pagination = (
                 href="#"
                 onClick={() => handleClick(number)}
                 className={`flex items-center justify-center px-3 h-8 leading-tight ${
-                  currentPage === number ? 'bg-black text-white' : 'text-black bg-white'
-                } border border-gray-700 hover:bg-black hover:text-black dark:hover:bg-black dark:hover:text-white`}
+                  currentPage === number ? ' text-blue-600 underline font-bold' : 'text-black bg-white'
+                } border  hover:text-blue-600 hover:font-bold hover:underline `}
               >
                 {number}
               </a>
@@ -76,9 +76,9 @@ export const Pagination = (
           <a
             href="#"
             onClick={() => handleClick(currentPage + 1)}
-            className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border border-gray-700 rounded-e hover:bg-black hover:text-black dark:hover:bg-black dark:hover:text-white"
+            className="flex items-center justify-center px-3 h-8 leading-tight text-black bg-white border  rounded-e hover:hover:text-blue-600 hover:font-bold hover:underline"
           >
-            {`>>`}
+            {`>`}
           </a>
         </li>
       </ul>
