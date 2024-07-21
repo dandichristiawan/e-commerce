@@ -1,5 +1,5 @@
 import { dataProducts } from '@/features/home/libs/types';
-import { renderStars } from '@/components/card/rating';
+import { renderStars } from '@/components/rating/rating';
 import { Link } from 'react-router-dom';
 
 interface Props {

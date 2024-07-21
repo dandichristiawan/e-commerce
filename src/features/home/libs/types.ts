@@ -15,5 +15,3 @@ export interface dataProducts{
     tags : string[]
     thumbnail:string
 }
-
-

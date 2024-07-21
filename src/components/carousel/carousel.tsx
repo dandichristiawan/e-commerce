@@ -16,7 +16,7 @@ export default function ImageSlide(
 ){
     return (
         <>
-            <Carousel className="w-full max-w-sm shadow-md">
+            <Carousel className="w-full max-w-xl shadow-md">
             <CarouselContent className="-ml-1">
                 {data && data.images && data.images.map((item, index) => (
                     <>
