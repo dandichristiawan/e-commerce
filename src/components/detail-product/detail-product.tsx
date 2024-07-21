@@ -2,13 +2,11 @@ import { ProductDetailResponse } from "@/features/product-detail/libs/definition
 import { renderStars } from "../rating/rating";
 import ReviewsBuyer from "./reviews";
 
-interface Props{
-    data : ProductDetailResponse
+interface Props {
+  data: ProductDetailResponse;
 }
 
-export default function DetailProduct(
-    {data}:Props
-) {
+export default function DetailProduct({ data }: Props) {
   return (
     <>
       <div className="ml-10">
@@ -21,8 +19,13 @@ export default function DetailProduct(
             </div>
           ))}
         </div>
-        <div className="flex items-center space-x-1 rtl:space-x-reverse gap-1">
-          {renderStars(data?.rating ?? 0)}({data?.rating})
+        <div className="flex my-2">
+          <div className="flex items-center space-x-1 rtl:space-x-reverse gap-1">
+            {renderStars(data?.rating ?? 0)}
+          </div>
+          <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
+            {data?.rating}
+          </span>
         </div>
         <div className="my-2 text-4xl font-bold">${data?.price}</div>
         <div className="border-t border-b mt-10 font-semibold text-xl">
@@ -54,9 +57,7 @@ export default function DetailProduct(
           <img src={`${data?.meta.qrCode}`} alt="" />
         </div>
         {/* end content */}
-        {
-            data&& <ReviewsBuyer data={data!.reviews!}/>
-        }
+        {data && <ReviewsBuyer data={data!.reviews!} />}
       </div>
     </>
   );
