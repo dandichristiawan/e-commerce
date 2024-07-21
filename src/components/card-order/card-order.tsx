@@ -17,7 +17,7 @@ interface Props{
 export default function CardOrder(
     {data}:Props
 ) {
-    const [sum, setSum] = useState(0)
+    const [sum, setSum] = useState(1)
     // const handleBtnPlusMin = () => {
 
     // }
@@ -31,7 +31,7 @@ export default function CardOrder(
         </CardHeader>
         <CardContent className="flex my-auto gap-2">
           <div className="border rounded-md w-20 flex justify-between">
-            <button className="p-2" onClick={() => setSum(sum == 0? 0 : sum-1)}>-</button>
+            <button className="p-2" onClick={() => setSum(sum == 1? 1 : sum-1)}>-</button>
             <span className="my-auto">{sum}</span>
             <button className="p-2" onClick={()=> setSum(sum == data.stock? sum : sum+1)}>+</button>
           </div>
