@@ -10,11 +10,11 @@ export default function DetailProduct({ data }: Props) {
   return (
     <>
       <div className="ml-10">
-        <div className="font-bold text-3xl">{data?.title}</div>
+        <div className="font-bold text-3xl my-2">{data?.title}</div>
         <div className="flex">
           <div className="text-sm font-semibold my-auto">Tags:</div>
           {data?.tags.map((e: any, i: number) => (
-            <div className="inline-block p-1 mx-1 bg-gray-200 text-sm font-thin border rounded-xl">
+            <div key={i} className="inline-block p-1 mx-1 bg-gray-200 text-sm font-thin border rounded-xl">
               {e}
             </div>
           ))}
