@@ -24,7 +24,7 @@ export default function ImageSlide(
                             <div className="p-1">
                                 <div className="flex aspect-square items-center justify-center p-6">
                                     <img
-                                        className=""
+                                        className="w-[320px] h-[320px]"
                                         src={`${item}`}
                                         alt="product image"
                                         width={520}
