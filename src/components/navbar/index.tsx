@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   return (
     <div className="z-50 flex justify-between bg-black text-white xl:p-4 p-3 xl:text-xl lg:text-lg text-md sticky top-0 w-full">
-      <Link to={'/home'}>
+      <Link to={'/home'} className='my-auto'>
         <div className="font-bold">LOGO</div>
       </Link>
       <div className="flex flex-row justify-end gap-6 items-center w-1/2">

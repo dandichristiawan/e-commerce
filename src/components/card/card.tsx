@@ -16,7 +16,7 @@ const Card = ({ product }: Props) => {
         >
           <Link
             to={`/product/${item.id}`}
-            target="_blank"
+            // target="_blank"
             rel="noopener noreferrer"
           >
             <img
