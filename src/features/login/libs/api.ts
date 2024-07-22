@@ -22,10 +22,9 @@ export async function LoginApi(
   const data = await response.json();
   Cookies.set('token', data.token, { expires: 1 / 24 });
   Cookies.set('refToken', data.refreshToken, { expires: 2 / 24 });
+  Cookies.set('userId', data.id);
   return data as signInResponse;
 }
-
-
 
 export async function RefreshAuthApi(
   requestData: refreshRequest
