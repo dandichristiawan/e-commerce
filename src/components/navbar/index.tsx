@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { clearAllCookies } from '@/lib/utils';
+import { Input } from '../ui/input';
 
 export const Navbar = () => {
   const navTo = useNavigate();
@@ -23,19 +24,15 @@ export const Navbar = () => {
 
   return (
     <div className="z-50 flex bg-black text-white xl:p-4 p-3 xl:text-xl lg:text-lg text-md sticky top-0 w-full">
-      <div className='flex justify-between w-full mx-12'>
+      <div className='flex items-center justify-between w-full mx-12'>
         <Link to={'/home'} className='my-auto'>
           <div className="font-bold">LOGO</div>
         </Link>
-        <div className='my-auto relative w-full text-lg mx-32 flex'>
+        <div className='my-auto relative w-full border text-lg mx-32 flex'>
           <div className='my-auto mr-4'>Category</div>
-          <input className='border-none rounded-sm p-1 w-full text-black ' type="text" name="" id="" placeholder='Search' />
+          <Input className='border-none rounded-sm w-full text-black' type="text" placeholder="Search" />
         </div>
-        <div className="flex flex-row justify-end gap-6 items-center w-1/2">
-          <div className="">Posts</div>
-          <div className="">Todos</div>
-          <div className="">Recipes</div>
-          <div className="">Quotes</div>
+        <div className="flex border">
           <DropdownMenu>
             <DropdownMenuTrigger>
               <div className=" flex justify-center items-center rounded-full p-2 w-10 bg-gray-600">
