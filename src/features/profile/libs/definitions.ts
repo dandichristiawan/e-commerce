@@ -14,8 +14,6 @@ export type CurrentUserResponse = {
   bloodGroup: string;
   height: number;
   weight: number;
-  eyeColor: string;
-  hair: Hair;
   ip: string;
   address: Address;
   macAddress: string;
@@ -29,10 +27,6 @@ export type CurrentUserResponse = {
   role: string;
 };
 
-interface Hair {
-  color: string;
-  type: string;
-}
 
 interface Coordinates {
   lat: number;
