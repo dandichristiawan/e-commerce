@@ -2,15 +2,32 @@ import { dataProducts } from "@/features/home/libs/types";
 import { renderStars } from "@/components/rating/rating";
 import { Link } from "react-router-dom";
 import CartAddAlert from "../cart/cart-add-alert";
+import Cookies from "js-cookie";
+import { AddCarts } from "@/features/product-detail/libs/api";
+import { useState } from "react";
 
 interface Props {
   product?: any[];
 }
 
 const Card = ({ product }: Props) => {
-  const handleClick = (id: number, quantity:number) => {
-    console.log(id);
-    console.log(quantity)
+  const userId = Cookies.get('userId')
+  const [loading, setLoading] = useState(false)
+  const handleClick = async (id: number, quantity:number) => {
+    let product = []
+      let data = {
+        id : id,
+        quantity : quantity
+      }
+      product.push(data)
+      setLoading(true)
+      try {
+        await AddCarts(parseInt(userId!), product)
+      } catch (error) {
+        
+      }finally{
+        setLoading(false)
+      }
   };
 
   return (
@@ -55,6 +72,7 @@ const Card = ({ product }: Props) => {
             <CartAddAlert 
               handleClick={handleClick} 
               data={item} 
+              loading={loading}
             />
           </div>
         </div>

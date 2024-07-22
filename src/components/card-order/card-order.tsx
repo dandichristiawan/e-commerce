@@ -10,6 +10,8 @@ import { Button } from "../ui/button";
 import { ProductDetailResponse } from "@/features/product-detail/libs/definitions";
 import { useState } from "react";
 import CartAddAlert from "../cart/cart-add-alert";
+import Cookies from "js-cookie";
+import { AddCarts } from "@/features/product-detail/libs/api";
 
 interface Props{
     data : ProductDetailResponse
@@ -18,10 +20,24 @@ interface Props{
 export default function CardOrder(
     {data}:Props
 ) {
+    const userId = Cookies.get('userId')
     const [sum, setSum] = useState(1)
-    const handleClick = (id:number, quantity:number) => {
-      console.log('productId :'+id)
-      console.log('quantity :'+quantity)
+    const [loading, setLoading] = useState(false)
+    const handleClick = async (id:number, quantity:number) => {
+      let product = []
+      let data = {
+        id : id,
+        quantity : quantity
+      }
+      product.push(data)
+      setLoading(true)
+      try {
+        await AddCarts(parseInt(userId!), product)
+      } catch (error) {
+        
+      }finally{
+        setLoading(false)
+      }
     }
 
   return (
@@ -48,6 +64,7 @@ export default function CardOrder(
                   handleClick={handleClick}
                   data={data}
                   quantity={sum}
+                  loading={loading}
                 />
                 <Button className="w-full bg-white hover:bg-blue-800 hover:text-white text-blue-600 border-blue-600 border-2 hover:border-blue-800">
                     Order Now
