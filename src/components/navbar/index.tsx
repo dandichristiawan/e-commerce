@@ -28,11 +28,11 @@ export const Navbar = () => {
         <Link to={'/home'} className='my-auto'>
           <div className="font-bold">LOGO</div>
         </Link>
-        <div className='my-auto relative w-full border text-lg mx-32 flex'>
+        <div className='my-auto relative w-full text-lg mx-32 flex'>
           <div className='my-auto mr-4'>Category</div>
           <Input className='border-none rounded-sm w-full text-black' type="text" placeholder="Search" />
         </div>
-        <div className="flex border">
+        <div className="flex">
           <DropdownMenu>
             <DropdownMenuTrigger>
               <div className=" flex justify-center items-center rounded-full p-2 w-10 bg-gray-600">
@@ -50,12 +50,14 @@ export const Navbar = () => {
                   </div>
                 </DropdownMenuItem>
               </Link>
-              <DropdownMenuItem>
-                <div className="flex flex-row gap-2 items-center">
-                  <img src={cartIcon} height={16} width={16} />
-                  <p>Cart</p>
-                </div>
-              </DropdownMenuItem>
+              <Link to={'/cart'}>
+                <DropdownMenuItem>
+                  <div className="flex flex-row gap-2 items-center">
+                    <img src={cartIcon} height={16} width={16} />
+                    <p>Cart</p>
+                  </div>
+                </DropdownMenuItem>
+              </Link>
               <DropdownMenuItem>
                 <div
                   onClick={onLogout}

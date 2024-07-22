@@ -4,6 +4,7 @@ import { HomePage } from '@/pages/home/home-page';
 import { ProfilePage } from '@/pages/profile/profile-page';
 import Cookies from 'js-cookie';
 import { ProductDetailPage } from '@/pages/product-detail/product-detail-page';
+import CartPage from '@/pages/cart/cart-page';
 
 const Routes = () => {
   const isTokenExist = Cookies.get('token');
@@ -27,6 +28,10 @@ const Routes = () => {
       path: 'product/:id',
       element: isTokenExist ? <ProductDetailPage /> : <Navigate to="/login" />,
     },
+    {
+      path: '/cart',
+      element: isTokenExist? <CartPage/> : <Navigate to="/login" />
+    }
   ];
 
   const allRoutes: RouteObject[] = [...unprotectedRoutes, ...protectedRoutes];
