@@ -1,6 +1,7 @@
 import { ProductDetailResponse } from "@/features/product-detail/libs/definitions";
 import { renderStars } from "../rating/rating";
 import ReviewsBuyer from "./reviews";
+import { Badge } from "../ui/badge-ui";
 
 interface Props {
   data: ProductDetailResponse;
@@ -14,9 +15,7 @@ export default function DetailProduct({ data }: Props) {
         <div className="flex">
           <div className="text-sm font-semibold my-auto">Tags:</div>
           {data?.tags.map((e: any, i: number) => (
-            <div key={i} className="inline-block p-1 mx-1 bg-gray-200 text-sm font-thin border rounded-xl">
-              {e}
-            </div>
+            <Badge key={i} variant="secondary" className="mx-1">{e}</Badge>
           ))}
         </div>
         <div className="flex my-2">
