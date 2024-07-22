@@ -14,7 +14,7 @@ interface Props {
 export default function ImageSlide({ data }: Props) {
   return (
     <>
-      <Carousel className="w-[420px] h-[420px] shadow-md">
+      <Carousel className="xl:w-[380px] xl:h-[380px] lg:w-[320px] lg:h-[320px] w-[300px] h-[300px] shadow-md">
         <CarouselContent className="-ml-1">
           {data &&
             data.images &&

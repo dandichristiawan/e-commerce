@@ -28,18 +28,23 @@ export const ProductDetail = () => {
   }, []);
 
   return (
-    <div className="my-10 flex gap-5">
-      <div>
-        <div className="sticky top-[5rem]">
-          {loading ? <ImageSlideSkeleton /> : <ImageSlide data={data!} />}
+    <>
+      <div className="my-10 flex justify-center gap-5 xl:mx-5 2xl:mx-5 lg:mx-6 md:mx-7 max-md:hidden">
+        <div>
+          <div className="sticky top-[5rem]">
+            {loading ? <ImageSlideSkeleton /> : <ImageSlide data={data!} />}
+          </div>
+        </div>
+        <DetailProduct data={data!} />
+        <div>
+          <div className="sticky top-[5rem]">
+            {data && <CardOrder data={data!}/>}
+          </div>
         </div>
       </div>
-      <DetailProduct data={data!} />
-      <div>
-        <div className="sticky top-[5rem]">
-          {data && <CardOrder data={data!}/>}
-        </div>
+      <div className="hidden max-md:block">
+        {/* mobile screen here */}
       </div>
-    </div>
+    </>
   );
 };

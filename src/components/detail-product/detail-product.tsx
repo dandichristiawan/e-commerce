@@ -9,7 +9,7 @@ interface Props {
 export default function DetailProduct({ data }: Props) {
   return (
     <>
-      <div className="ml-10">
+      <div className="ml-10 ">
         <div className="font-bold text-3xl my-2">{data?.title}</div>
         <div className="flex">
           <div className="text-sm font-semibold my-auto">Tags:</div>
