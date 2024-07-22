@@ -32,7 +32,11 @@ export const Profile = () => {
     get();
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return (
+    <div className='min-h-dvh text-center'>
+      <p>Loading...</p>
+    </div>
+)
 
   if (userData)
     return (

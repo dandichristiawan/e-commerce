@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 export default function Cart() {
   return (
     <>
+    <div className="min-h-dvh">
       <div>
         <span className="inline-block w-full text-blue-600 font-semibold text-4xl my-4">
           Shopping Cart
@@ -32,6 +33,7 @@ export default function Cart() {
           <Button className="bg-blue-600 hover:bg-blue-800 rounded-none w-56">Checkout</Button>
         </div>
       </div>
+    </div>
     </>
   );
 }
