@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import personIcon from '@/assets/icons/icons8-person-64.png';
 import personIconBlack from '@/assets/icons/icons8-person-64-black.png';
 import cartIcon from '@/assets/icons/icons8-shopping-cart-64.png';
+import { ShoppingCart } from 'lucide-react';
 import logoutIcon from '@/assets/icons/icons8-logout-50.png';
 import {
   DropdownMenu,
@@ -13,9 +14,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { clearAllCookies } from '@/lib/utils';
 import { Input } from '../ui/input';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 export const Navbar = () => {
   const navTo = useNavigate();
+
+  const items = useSelector((item: RootState) => item.cart.items)
+  const sum = items.reduce((total, item) => total + item.quantity, 0)
 
   const onLogout = () => {
     clearAllCookies();
@@ -31,6 +37,14 @@ export const Navbar = () => {
         <div className='my-auto relative w-full text-lg mx-32 flex'>
           <div className='my-auto mr-4'>Category</div>
           <Input className='border-none rounded-sm w-full text-black' type="text" placeholder="Search" />
+        </div>
+        <div className="flex flex-row justify-end gap-6 items-center mx-4">
+          <div className="relative">
+            <Link to={'/cart'}>
+              <ShoppingCart/>
+            </Link>
+            <span className='absolute top-0 right-0 rounded-full bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center'>{sum}</span>
+          </div>
         </div>
         <div className="flex">
           <DropdownMenu>

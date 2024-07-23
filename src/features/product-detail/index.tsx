@@ -6,11 +6,14 @@ import ImageSlide from "@/components/carousel/carousel";
 import ImageSlideSkeleton from "@/components/carousel/carousel-skeleton";
 import DetailProduct from "@/components/detail-product/detail-product";
 import CardOrder from "@/components/card-order/card-order";
+// import { useSelector } from "react-redux";
+// import { RootState } from "@/store/store";
 
 export const ProductDetail = () => {
   const { id } = useParams();
   const [data, setData] = useState<ProductDetailResponse>();
   const [loading, setLoading] = useState<boolean>(false);
+  // const items = useSelector((state: RootState) => state.cart.items) buat nampilin items cart
 
   useEffect(() => {
     async function get() {
