@@ -31,7 +31,7 @@ const Card = ({ product }: Props) => {
   };
 
   return (
-    <div className="grid grid-cols-5 gap-4 my-10">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-4 my-10">
       {product?.map((item: dataProducts) => (
         <div
           key={item.id}
