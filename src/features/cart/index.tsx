@@ -30,11 +30,13 @@ export default function Cart() {
   },[])
   
   if(loading){
-    <div className="min-h-dvh">
-      <div className="text-center">
-        Loading...
+    return(
+      <div className="min-h-dvh">
+        <div className="text-center">
+          Loading...
+        </div>
       </div>
-    </div>
+    )
   }else{
     return (
       <>
@@ -56,12 +58,12 @@ export default function Cart() {
         <div className="p-4 border rounded my-4 shadow-md">
             {
               listCart && listCart.products?.map((item, i) => (
-                <div className="p-4 rounded border-b grid grid-cols-6 w-full">
+                <div key={i} className="p-4 rounded border-b grid grid-cols-6 w-full">
                   <>
-                      <div className="col-span-2">{item.title}</div>
-                      <div>${item.price}</div>
-                      <div>{item.quantity}</div>
-                      <div>${item.total}</div>
+                      <div className="col-span-2">{item?.title??''}</div>
+                      <div>${item?.price??0}</div>
+                      <div>{item?.quantity??0}</div>
+                      <div>${item?.total??0}</div>
                       <div className="mx-10"><Trash2 className="text-red-700"/></div>
                   </>
                 </div>

@@ -45,8 +45,8 @@ export const Navbar = () => {
           <div className="relative">
             <Link to={'/cart'}>
               <ShoppingCart/>
+              <span className='absolute top-0 right-0 rounded-full bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center'>{sum}</span>
             </Link>
-            <span className='absolute top-0 right-0 rounded-full bg-red-600 text-white text-xs w-4 h-4 flex items-center justify-center'>{sum}</span>
           </div>
         </div>
         <div className="flex">
