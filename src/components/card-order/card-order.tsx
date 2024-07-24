@@ -11,7 +11,6 @@ import { ProductDetailResponse } from "@/features/product-detail/libs/definition
 import { useState } from "react";
 import CartAddAlert from "../cart/cart-add-alert";
 import Cookies from "js-cookie";
-import { AddCarts } from "@/features/product-detail/libs/api";
 import { AppDispatch } from "@/store/store";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/features/cart/cartSlice";
@@ -23,26 +22,14 @@ interface Props{
 export default function CardOrder(
     {data}:Props
 ) {
-    const userId = Cookies.get('userId')
     const [sum, setSum] = useState(1)
     const [loading, setLoading] = useState(false)
     const dispatch: AppDispatch = useDispatch()
 
     const handleClick = async (id:number, quantity:number) => {
-      let product = []
       let data = { id : id, quantity : quantity}
       // simulasi keranjang pake redux
       dispatch(addToCart(data))
-      // simulasi keranjang pake redux
-      product.push(data)
-      setLoading(true)
-      try {
-        await AddCarts(parseInt(userId!), product)
-      } catch (error) {
-        
-      }finally{
-        setLoading(false)
-      }
     }
 
   return (

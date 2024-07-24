@@ -3,7 +3,6 @@ import { renderStars } from "@/components/rating/rating";
 import { Link } from "react-router-dom";
 import CartAddAlert from "../cart/cart-add-alert";
 import Cookies from "js-cookie";
-import { AddCarts } from "@/features/product-detail/libs/api";
 import { useState } from "react";
 import { AppDispatch } from "@/store/store";
 import { useDispatch } from "react-redux";
@@ -14,28 +13,14 @@ interface Props {
 }
 
 const Card = ({ product }: Props) => {
-  const userId = Cookies.get('userId')
   const [loading, setLoading] = useState(false)
   const dispatch: AppDispatch = useDispatch()
 
   const handleClick = async (id: number, quantity:number) => {
-    let product = []
-      let data = {
-        id : id,
-        quantity : quantity
-      }
+      let data = { id : id, quantity : quantity}
       // simulasi keranjang pake redux
       dispatch(addToCart(data))
-      // ------------------
-      product.push(data)
-      setLoading(true)
-      try {
-        await AddCarts(parseInt(userId!), product)
-      } catch (error) {
-        
-      }finally{
-        setLoading(false)
-      }
+
   };
 
   return (
