@@ -14,16 +14,19 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { clearAllCookies } from '@/lib/utils';
 import { Input } from '../ui/input';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '@/store/store';
+import { resetCart } from '@/features/cart/cartSlice';
 
 export const Navbar = () => {
   const navTo = useNavigate();
-
+  
+  const dispatch: AppDispatch = useDispatch()
   const items = useSelector((item: RootState) => item.cart.items)
   const sum = items.reduce((total, item) => total + item.quantity, 0)
 
   const onLogout = () => {
+    dispatch(resetCart())
     clearAllCookies();
     navTo('/login');
   };
