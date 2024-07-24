@@ -1,8 +1,11 @@
+import { setSkip } from '@/features/home/paginationSlice';
+import { AppDispatch } from '@/store/store';
+import { useDispatch } from 'react-redux';
+
 interface Props {
   limit: number;
   skip: number;
   total: number;
-  setPage: (value: number) => void;
 }
 
 export const Pagination = (
@@ -10,8 +13,8 @@ export const Pagination = (
         limit, 
         skip, 
         total, 
-        setPage 
     }: Props) => {
+  const dispatch: AppDispatch = useDispatch()
   const sum = Math.ceil(total / limit);
   const currentPage = Math.ceil(skip / limit) + 1;
 
@@ -37,7 +40,7 @@ export const Pagination = (
 
   const handleClick = (number: number | string) => {
     if (typeof number === 'number') {
-      setPage((number - 1) * limit);
+      dispatch(setSkip((number - 1) * limit))
     }
   };
 

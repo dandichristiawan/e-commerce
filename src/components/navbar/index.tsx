@@ -17,6 +17,7 @@ import { Input } from '../ui/input';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/store/store';
 import { resetCart } from '@/features/cart/cartSlice';
+import { resetSkip } from '@/features/home/paginationSlice';
 
 export const Navbar = () => {
   const navTo = useNavigate();
@@ -27,6 +28,7 @@ export const Navbar = () => {
 
   const onLogout = () => {
     dispatch(resetCart())
+    dispatch(resetSkip())
     clearAllCookies();
     navTo('/login');
   };
