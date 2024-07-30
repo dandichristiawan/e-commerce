@@ -6,10 +6,7 @@ import { CurrentUserApi } from './libs/api';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableHead,
-  TableHeader,
   TableRow,
 } from '@/components/ui/table';
 
@@ -36,7 +33,7 @@ export const Profile = () => {
     <div className='min-h-dvh text-center'>
       <p>Loading...</p>
     </div>
-)
+  )
 
   if (userData)
     return (

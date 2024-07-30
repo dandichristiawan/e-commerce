@@ -2,7 +2,6 @@ import { dataProducts } from "@/features/home/libs/types";
 import { renderStars } from "@/components/rating/rating";
 import { Link } from "react-router-dom";
 import CartAddAlert from "../cart/cart-add-alert";
-import Cookies from "js-cookie";
 import { useState } from "react";
 import { AppDispatch } from "@/store/store";
 import { useDispatch } from "react-redux";
@@ -13,13 +12,13 @@ interface Props {
 }
 
 const Card = ({ product }: Props) => {
-  const [loading, setLoading] = useState(false)
+  const [loading] = useState(false)
   const dispatch: AppDispatch = useDispatch()
 
-  const handleClick = async (id: number, quantity:number) => {
-      let data = { id : id, quantity : quantity}
-      // simulasi keranjang pake redux
-      dispatch(addToCart(data))
+  const handleClick = async (id: number, quantity: number) => {
+    let data = { id: id, quantity: quantity }
+    // simulasi keranjang pake redux
+    dispatch(addToCart(data))
 
   };
 
@@ -62,9 +61,9 @@ const Card = ({ product }: Props) => {
                 ${item.price}
               </span>
             </div>
-            <CartAddAlert 
-              handleClick={handleClick} 
-              data={item} 
+            <CartAddAlert
+              handleClick={handleClick}
+              data={item}
               loading={loading}
             />
           </div>

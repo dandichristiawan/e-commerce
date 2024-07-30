@@ -10,27 +10,26 @@ import { Button } from "../ui/button";
 import { ProductDetailResponse } from "@/features/product-detail/libs/definitions";
 import { useState } from "react";
 import CartAddAlert from "../cart/cart-add-alert";
-import Cookies from "js-cookie";
 import { AppDispatch } from "@/store/store";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/features/cart/cartSlice";
 
-interface Props{
-    data : ProductDetailResponse
+interface Props {
+  data: ProductDetailResponse
 }
 
 export default function CardOrder(
-    {data}:Props
+  { data }: Props
 ) {
-    const [sum, setSum] = useState(1)
-    const [loading, setLoading] = useState(false)
-    const dispatch: AppDispatch = useDispatch()
+  const [sum, setSum] = useState(1)
+  const [loading] = useState(false)
+  const dispatch: AppDispatch = useDispatch()
 
-    const handleClick = async (id:number, quantity:number) => {
-      let data = { id : id, quantity : quantity}
-      // simulasi keranjang pake redux
-      dispatch(addToCart(data))
-    }
+  const handleClick = async (id: number, quantity: number) => {
+    let data = { id: id, quantity: quantity }
+    // simulasi keranjang pake redux
+    dispatch(addToCart(data))
+  }
 
   return (
     <>
@@ -41,24 +40,24 @@ export default function CardOrder(
         </CardHeader>
         <CardContent className="flex my-auto gap-2">
           <div className="border rounded-md w-20 flex justify-between">
-            <button className="p-2" onClick={() => setSum(sum == 1? 1 : sum-1)}>-</button>
+            <button className="p-2" onClick={() => setSum(sum == 1 ? 1 : sum - 1)}>-</button>
             <span className="my-auto">{sum}</span>
-            <button className="p-2" onClick={()=> setSum(sum == data.stock? sum : sum+1)}>+</button>
+            <button className="p-2" onClick={() => setSum(sum == data.stock ? sum : sum + 1)}>+</button>
           </div>
           <span className="my-auto">Stock : {data.stock}</span>
         </CardContent>
         <CardFooter>
-            <div className="">
-                <CartAddAlert
-                  handleClick={handleClick}
-                  data={data}
-                  quantity={sum}
-                  loading={loading}
-                />
-                <Button className="w-full bg-white hover:bg-blue-800 hover:text-white text-blue-600 border-blue-600 border-2 hover:border-blue-800">
-                    Order Now
-                </Button>
-            </div>
+          <div className="">
+            <CartAddAlert
+              handleClick={handleClick}
+              data={data}
+              quantity={sum}
+              loading={loading}
+            />
+            <Button className="w-full bg-white hover:bg-blue-800 hover:text-white text-blue-600 border-blue-600 border-2 hover:border-blue-800">
+              Order Now
+            </Button>
+          </div>
         </CardFooter>
       </Card>
     </>

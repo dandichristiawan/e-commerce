@@ -11,7 +11,7 @@ export default function ReviewsBuyer({ data }: Props) {
         <div className="text-lg font-semibold mb-5">REVIEWS</div>
         {data &&
           data.map((review, i: number) => (
-            <div className="my-2 border-y p-5">
+            <div key={i} className="my-2 border-y p-5">
               <div className="flex">
                 <div className="flex items-center space-x-1 rtl:space-x-reverse gap-1">
                   {renderStars(review.rating)}

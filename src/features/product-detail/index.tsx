@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductDetailResponse } from "./libs/definitions";
 import { GetCurrentProduct } from "./libs/api";
@@ -6,8 +6,6 @@ import ImageSlide from "@/components/carousel/carousel";
 import ImageSlideSkeleton from "@/components/carousel/carousel-skeleton";
 import DetailProduct from "@/components/detail-product/detail-product";
 import CardOrder from "@/components/card-order/card-order";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 // import { useSelector } from "react-redux";
 // import { RootState } from "@/store/store";
 
@@ -44,7 +42,7 @@ export const ProductDetail = () => {
         <DetailProduct data={data!} />
         <div>
           <div className="sticky top-[5rem]">
-            {data && <CardOrder data={data!}/>}
+            {data && <CardOrder data={data!} />}
           </div>
         </div>
       </div>
