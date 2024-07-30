@@ -10,27 +10,27 @@ const Routes = () => {
   const isTokenExist = Cookies.get('token');
   const unprotectedRoutes: RouteObject[] = [
     {
-      path: `/aduh/login`,
+      path: `/`,
       element: <LoginPage />,
     },
   ];
 
   const protectedRoutes: RouteObject[] = [
     {
-      path: '/aduh/home',
-      element: isTokenExist ? <HomePage /> : <Navigate to="/login" />,
+      path: '/home',
+      element: isTokenExist ? <HomePage /> : <Navigate to="/" />,
     },
     {
-      path: '/aduh/profile',
-      element: isTokenExist ? <ProfilePage /> : <Navigate to="/login" />,
+      path: '/profile',
+      element: isTokenExist ? <ProfilePage /> : <Navigate to="/" />,
     },
     {
-      path: '/aduh/product/:id',
-      element: isTokenExist ? <ProductDetailPage /> : <Navigate to="/login" />,
+      path: '/product/:id',
+      element: isTokenExist ? <ProductDetailPage /> : <Navigate to="/" />,
     },
     {
-      path: '/aduh/cart',
-      element: isTokenExist? <CartPage/> : <Navigate to="/login" />
+      path: '/cart',
+      element: isTokenExist? <CartPage/> : <Navigate to="/" />
     }
   ];
 
